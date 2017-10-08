@@ -9,7 +9,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Image
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -19,19 +20,21 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+const MOCKED_MOVIES_DATA = [
+  {title: 'Wonder Woman', year: '2017', posters: {thumbnail: 'http://moviemom.maxlazebnik.com/wp-content/uploads/2017/06/Wonder_Woman.jpg'}},
+];
+
+let wonderWoman = require ('./images/Wonder_Woman.jpg');
+
 export default class App extends Component<{}> {
+
   render() {
+    let movie = MOCKED_MOVIES_DATA[0];
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <Text>{movie.title}</Text>
+        <Text>{movie.year}</Text>
+        <Image style={styles.image} source={wonderWoman} />
       </View>
     );
   }
@@ -54,4 +57,9 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  image: {
+    width: 200,
+    height: 300,
+    padding: 10
+  }
 });
