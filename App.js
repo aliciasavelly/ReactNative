@@ -18,12 +18,12 @@ const MOCKED_MOVIES_DATA = [
   {title: 'Wonder Woman', year: '2017', posters: {thumbnail: 'http://moviemom.maxlazebnik.com/wp-content/uploads/2017/06/Wonder_Woman.jpg'}},
 ];
 
-let wonderWoman = require ('./images/Wonder_Woman.jpg');
+let wonderWoman = require('./images/Wonder_Woman.jpg');
 
 export default class App extends Component<{}> {
-
   render() {
     let movie = MOCKED_MOVIES_DATA[0];
+
     return (
       <View style={styles.container}>
         <Text>{movie.title}</Text>
